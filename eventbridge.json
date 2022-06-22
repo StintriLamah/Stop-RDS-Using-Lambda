@@ -1,0 +1,10 @@
+{
+  "source": ["aws.cloudwatch"],
+  "detail-type": ["CloudWatch Alarm State Change"],
+  "resources": ["arn:aws:cloudwatch:us-east-1:678932343753:alarm:awsrds-poc-test-High-DB-Connections"],
+  "detail": {
+    "state": {
+      "value": ["ALARM"]
+    }
+  }
+}
