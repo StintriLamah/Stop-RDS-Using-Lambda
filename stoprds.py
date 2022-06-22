@@ -18,10 +18,9 @@ def get_tags_for_db_cluster(db):
     return instance_tags['TagList']
 
 def lambda_handler(event, context):
-    #print("Received event: " + json.dumps(event, indent=2))
-    message = event['detail']['configuration']['metrics'][0]['metricStat']['metric']['dimensions']['DBInstanceIdentifier']
+    db_instance = event['detail']['configuration']['metrics'][0]['metricStat']['metric']['dimensions']['DBInstanceIdentifier']
     
-    dbs = rds.describe_db_instances(DBInstanceIdentifier= message)
+    dbs = rds.describe_db_instances(DBInstanceIdentifier= db_instance)
     readReplica = []
     for db in dbs['DBInstances']:
         readReplicaDB = db['ReadReplicaDBInstanceIdentifiers']
