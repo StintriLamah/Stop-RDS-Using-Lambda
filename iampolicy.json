@@ -1,0 +1,17 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "rds:DescribeDBInstances",
+                "rds:DescribeDBClusters",
+                "rds:StopDBInstance",
+                "rds:StopDBCluster",
+                "rds:ListTagsForResource"
+            ],
+            "Resource": [
+                "arn:aws:rds:<region>:<account>:db:*",
+                "arn:aws:rds:<region>:<account>:cluster:*"
+            ],
+            "Effect": "Allow"
+        }
